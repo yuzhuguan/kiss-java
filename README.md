@@ -1,11 +1,9 @@
 # kiss-java
 effective java, read and write the code
 
-**Contributions:** Issues, comments and pull requests are super welcome :smiley:
-
 # 1. TABLE OF CONTENTS
 - [1. TABLE OF CONTENTS](#1-table-of-contents)
-- [2. CREATING AND DESTROYING OBJECTS](#2-creating-and-destroying-objects)
+- [2. 创建和销毁对象](#2-creating-and-destroying-objects)
 	- [1. Use STATIC FACTORY METHODS instead of constructors](#1-use-static-factory-methods-instead-of-constructors)
 	- [2. Use BUILDERS when faced with many constructors](#2-use-builders-when-faced-with-many-constructors)
 	- [3. Enforce the singleton property with a private constructor or an enum type](#3-enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type)
@@ -97,7 +95,7 @@ effective java, read and write the code
 
 
 
-# 2. CREATING AND DESTROYING OBJECTS
+# 2. 创建和销毁对象
 ## 1. Use STATIC FACTORY METHODS instead of constructors
 **_ADVANTAGES_**
 
