@@ -4,7 +4,7 @@ effective java, read and write the code
 # 1. TABLE OF CONTENTS
 - [1. TABLE OF CONTENTS](#1-table-of-contents)
 - [2. 创建和销毁对象](#2-创建和销毁对象)
-	- [1. Use STATIC FACTORY METHODS instead of constructors](#1-use-static-factory-methods-instead-of-constructors)
+	- [1. 用静态工厂方法代替构造器](#1-用静态工厂方法代替构造器)
 	- [2. Use BUILDERS when faced with many constructors](#2-use-builders-when-faced-with-many-constructors)
 	- [3. Enforce the singleton property with a private constructor or an enum type](#3-enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type)
 	- [4. Enforce noninstantiability with a private constructor](#4-enforce-noninstantiability-with-a-private-constructor)
@@ -96,15 +96,15 @@ effective java, read and write the code
 
 
 # 2. 创建和销毁对象
-## 1. Use STATIC FACTORY METHODS instead of constructors
-**_ADVANTAGES_**
+## 1. 用静态工厂方法代替构造器
+**_优势_**
 
-* Unlike constructors, they have names
-* Unlike constructors, they are not requires to create a new object each time they're invoked
-* Unlike constructors, they can return an object of any subtype of their return type
+* 静态工厂方法与构造器不同的是，静态工厂方法有名称，相对有各种参数的构造器，用特殊名字的静态方法，更便于代码阅读和使用
+* 不需要每次调用时创建新的对象，如果程序经常创建相同的对象，且创建对象的代价很高，那么静态工厂方法能极大地提升性能
+* 静态工厂方法可以返回原返回类型的任何子类型的对象，参考Collections Framework API 及 服务提供框架（Service Provider Framework， 参考JDBC）
 * They reduce verbosity of creating parameterized type instances
 
-**_DISADVANTAGES_**
+**_劣势_**
 
 * If providing only static factory methods, classes without public or protected constructors cannot be subclassed (encourage to use composition instead inheritance).
 * They are not readily distinguishable from other static methods (Some common names (each with a different pourpose) are: valueOf, of, getInstance, newInstance, getType and newType)
