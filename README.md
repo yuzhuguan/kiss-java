@@ -5,7 +5,7 @@ effective java, read and write the code
 - [1. TABLE OF CONTENTS](#1-table-of-contents)
 - [2. 创建和销毁对象](#2-创建和销毁对象)
 	- [1. 用静态工厂方法代替构造器](#1-用静态工厂方法代替构造器)
-	- [2. 遇到多个构造器参数时要考虑用Builder模式](#2-遇到多个构造器参数时要考虑用Builder模式)
+	- [2. 遇到多个构造器参数时要考虑用Builder模式](#2-遇到多个构造器参数时要考虑用builder模式)
 	- [3. Enforce the singleton property with a private constructor or an enum type](#3-enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type)
 	- [4. Enforce noninstantiability with a private constructor](#4-enforce-noninstantiability-with-a-private-constructor)
 	- [5. Avoid creating objects](#5-avoid-creating-objects)
