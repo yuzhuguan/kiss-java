@@ -183,7 +183,7 @@ effective java, read and write the code
 		}
 	}
 ```
-**_Calling the builder_**
+**_典型的Builder pattern的调用，是不是让你想起了Android的AlertDialog or Notification_**
 ```java
 
 	NutritionFacts cocaCola = new NutritionFacts.Builder(240,8).calories(100).sodium(35).carbohydrate(27).build();
