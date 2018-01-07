@@ -5,7 +5,7 @@ effective java, read and write the code
 - [1. TABLE OF CONTENTS](#1-table-of-contents)
 - [2. 创建和销毁对象](#2-创建和销毁对象)
 	- [1. 用静态工厂方法代替构造器](#1-用静态工厂方法代替构造器)
-	- [2. Use BUILDERS when faced with many constructors](#2-use-builders-when-faced-with-many-constructors)
+	- [2. 遇到多个构造器参数时要考虑用Builder模式](#2-遇到多个构造器参数时要考虑用Builder模式)
 	- [3. Enforce the singleton property with a private constructor or an enum type](#3-enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type)
 	- [4. Enforce noninstantiability with a private constructor](#4-enforce-noninstantiability-with-a-private-constructor)
 	- [5. Avoid creating objects](#5-avoid-creating-objects)
@@ -102,12 +102,13 @@ effective java, read and write the code
 * 静态工厂方法与构造器不同的是，静态工厂方法有名称，相对有各种参数的构造器，用特殊名字的静态方法，更便于代码阅读和使用
 * 不需要每次调用时创建新的对象，如果程序经常创建相同的对象，且创建对象的代价很高，那么静态工厂方法能极大地提升性能
 * 静态工厂方法可以返回原返回类型的任何子类型的对象，参考Collections Framework API 及 服务提供框架（Service Provider Framework， 参考JDBC）
-* They reduce verbosity of creating parameterized type instances
+从Java 8开始，接口不能包含静态方法的限制被取消了，所以通常没有理由为接口提供一个不可实例化的伴随类。 很多公开的静态成员应该放在这个接口本身。 但是，请注意，将这些静态方法的大部分实现代码放在单独的包私有类中仍然是必要的。 这是因为Java 8要求所有接口的静态成员都是公共的。 Java 9允许私有静态方法，但静态字段和静态成员类仍然需要公开。
+* 创建参数化类型实例的时候，会使代码变的简洁。
 
 **_劣势_**
 
-* If providing only static factory methods, classes without public or protected constructors cannot be subclassed (encourage to use composition instead inheritance).
-* They are not readily distinguishable from other static methods (Some common names (each with a different pourpose) are: valueOf, of, getInstance, newInstance, getType and newType)
+* 类如果不含公有的或者受保护的构造器，就不能被子类化，但其实也是在鼓励多用组合少用继承.
+* 它们与其它静态方法没有任何区别，程序员很难找到它们。
 
 ```java
 
@@ -116,7 +117,7 @@ effective java, read and write the code
 	}
 ```
 
-## 2. Use BUILDERS when faced with many constructors
+## 2. 遇到多个构造器参数时要考虑用Builder模式
 Is a good choice when designing classes whose constructors or static factories would have more than a handful of parameters.
 
 Builder pattern simulates named optional parameters as in ADA and Python.
