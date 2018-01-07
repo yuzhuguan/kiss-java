@@ -118,9 +118,9 @@ effective java, read and write the code
 ```
 
 ## 2. 遇到多个构造器参数时要考虑用Builder模式
-Is a good choice when designing classes whose constructors or static factories would have more than a handful of parameters.
+如果类的构造器或者静态工厂中具有很多个参数，设计这种类时，Builder模式就是种不错的选择，特别是当大多数参数都是可选的时候，与使用传统的重叠构造器模式相比，使用Builder模式的代码将更易于阅读和编写，构造器也比JavaBeans更加安全.
 
-Builder pattern simulates named optional parameters as in ADA and Python.
+典型的Builder pattern.
 
 ```java
 
